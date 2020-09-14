@@ -15,13 +15,15 @@ def index():
     title = 'View the Top News Stories'
     return render_template('index.html', title = title,headlines = top_headlines)
 
-@app.route('/news_source/<int:news_id>')
+@app.route('/news_source/<string:news_id>')
 def news_source(news_id):
 
     '''
     View news page function that returns the news broadcasters page and its data
     '''
-    broadcaster_search="sources=" + news_id
+    broadcaster_search="sources=bbc-news"
+    # + news_id
     broadcasternews = get_broadcaster_news(broadcaster_search)
-    title = f'{broadcasternews.title}'
-    return render_template('news_source.html',broadcasternews=broadcasternews)
+    print(broadcasternews)
+    title = 'View stories from BBC'
+    return render_template('news_source.html',title=title,broadcasternews=broadcasternews)

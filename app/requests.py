@@ -53,17 +53,20 @@ def process_results(newz_list):
         URLsource = source_info.get('url')
         date = source_info.get('publishedAt')
 
-        if  broadcaster:
+        if  id:
 
-            news_object = NewsArticle2(title,description,image,URLsource,date)
-            newz_results.append(news_object)
-            news_source_object = News1(id,broadcaster)
-            newz_results.append(news_source_object)
+                news_object = NewsArticle2(title,description,image,URLsource,date)
+                newz_results.append(news_object)
+                news_source_object = News1(id,broadcaster)
+                newz_results.append(news_source_object)
 
 
     return newz_results
 
 def get_broadcaster_news(id):
+    '''
+    Function that gets the json response to our url request
+    '''
     get_broadcaster_news_url = base_url.format(id,apikey)
 
     with urllib.request.urlopen(get_broadcaster_news_url) as url:
@@ -73,7 +76,7 @@ def get_broadcaster_news(id):
         bdnd_object = None
 
         if broadcaster_news_details_data_response['articles']:
-            news_results_list = get_news_response['articles']
-            news_results = process_results(news_results_list)
+            bdnd_object_list = broadcaster_news_details_data_response['articles']
+            bdnd_object = process_results(bdnd_object_list)
 
-    return news_results
+    return bdnd_object

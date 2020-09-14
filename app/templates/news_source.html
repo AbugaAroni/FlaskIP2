@@ -1,24 +1,26 @@
 {% extends 'base.html'%}
+{% import 'macros.html' as macro%}
 
 <!-- Content block -->
 {% block content %}
 <div class="container">
 
-    <!-- Poster background -->
-    <div class="row">
-        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 posterPath" style="background: url({{broadcaster.image}}) no-repeat center center">
-        </div>
+  <div class="row">
 
-        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 movie-details">
-            <h3>{{ broadcaster.title }}</h3>
-
-            <p class="overview"> {{ broadcaster.description }}</p>
-            <p class="ratings"> <b> {{ broadcaster.date }}</b> - <i>{{ broadcaster.URLsource}} votes </i> </p>
-
-
-        </div>
+    <div class="col-md-1">
     </div>
 
-</div>
+    <div class="col-md-10">
+  <!-- News display section  -->
+      <h3> Lastest News from the BBC</h3>
+        <ul>
+           {{ macro.displayBroadcasterNews(broadcasternews)}}
+        </ul>
+    </div>
+
+    <div class="col-md-1">
+    </div>
+
+  </div>
 
 {% endblock%}
