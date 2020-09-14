@@ -1,0 +1,7 @@
+{% macro displayNews(headlines) %}
+
+    {% for top_headlines in headlines %}
+        <li>{{ top_headlines.title}}</li>
+    {% endfor %}
+
+{% endmacro %}
