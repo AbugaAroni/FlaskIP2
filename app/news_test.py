@@ -17,6 +17,10 @@ class NewsTest(unittest.TestCase):
 ,)
 
     def test_instance(self):
+        '''
+        test_init test case to test if the object is initialized properly
+        '''
+
         self.assertTrue(isinstance(self.new_News,News))
 
 
