@@ -1,7 +1,21 @@
 {% macro displayNews(headlines) %}
 
     {% for top_headlines in headlines %}
-        <li>{{ top_headlines.title}}</li>
+    <div class="col-md-2 top_headlines-card">
+        <h3> Headline news from {{ top_headlines.broadcaster}} </h3>
+        <img src="{{ top_headlines.image }}" alt="{{ top_headlines.broadcaster }} images" class="img-responsive">
+        <ol>{{ top_headlines.title}}</ol>
+        <ol class="text-center">
+            <a href="{{top_headlines.URLsource}}">
+                Read more</a>
+        </ol>
+
+        <ol> break! </ol>
+        <ol class="text-center">
+          More from  <a href="/news_source/{{top_headlines.URLsource}}">
+                {{ top_headlines.broadcaster }}</a>
+        </ol>
+    </div>
     {% endfor %}
 
 {% endmacro %}

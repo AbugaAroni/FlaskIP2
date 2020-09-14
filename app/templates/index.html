@@ -5,12 +5,20 @@
     {% block content %}
 
           <div class="row">
-            <div class="col-md-6">
+
+            <div class="col-md-1">
+            </div>
+
+            <div class="col-md-10">
           <!-- News display section  -->
               <h3> Lastest News</h3>
-               <ul>
+                <ul>
                    {{ macro.displayNews(headlines)}}
-              </ul>
+                </ul>
             </div>
+
+            <div class="col-md-1">
+            </div>
+
           </div>
     {% endblock%}

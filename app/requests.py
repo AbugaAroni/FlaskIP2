@@ -41,23 +41,39 @@ def process_results(newz_list):
     '''
     newz_results = []
     for source_info in newz_list:
-        id = source_info.get('source.id')
-        broadcaster = source_info.get('source.name')
+        #source parses info from source{}
 
-        if id:
+        source = source_info.get('source')
+
+        id = source.get('id')
+        broadcaster = source.get('name')
+        title = source_info.get('title')
+        description = source_info.get('description')
+        image = source_info.get('urlToImage')
+        URLsource = source_info.get('url')
+        date = source_info.get('publishedAt')
+
+        if  broadcaster:
+
+            news_object = NewsArticle2(title,description,image,URLsource,date)
+            newz_results.append(news_object)
             news_source_object = News1(id,broadcaster)
             newz_results.append(news_source_object)
 
-    for news_item in newz_list:
-        title = news_item.get('title')
-        description = news_item.get('description')
-        image = news_item.get('urlToImage')
-        URLsource = news_item.get('url')
-        date = news_item.get('publishedAt')
-
-        if image:
-            news_object = NewsArticle2(title,description,image,URLsource,date)
-            newz_results.append(news_object)
-
 
     return newz_results
+
+def get_broadcaster_news(id):
+    get_broadcaster_news_url = base_url.format(id,apikey)
+
+    with urllib.request.urlopen(get_broadcaster_news_url) as url:
+        broadcaster_news_details_data = url.read()
+        broadcaster_news_details_data_response = json.loads(broadcaster_news_details_data)
+
+        bdnd_object = None
+
+        if broadcaster_news_details_data_response['articles']:
+            news_results_list = get_news_response['articles']
+            news_results = process_results(news_results_list)
+
+    return news_results
