@@ -2,7 +2,8 @@ from app import app
 import urllib.request,json
 from .models import news
 
-News = news.News
+News1 = news.News
+NewsArticle2 = news.NewsArticle
 
 # Getting api key
 apikey = app.config['NEWS_API_KEY']
@@ -26,7 +27,6 @@ def get_news(categories):
             news_results_list = get_news_response['articles']
             news_results = process_results(news_results_list)
 
-
     return news_results
 
 def process_results(newz_list):
@@ -40,17 +40,24 @@ def process_results(newz_list):
         newz_results: A list of news objects
     '''
     newz_results = []
+    for source_info in newz_list:
+        id = source_info.get('source.id')
+        broadcaster = source_info.get('source.name')
+
+        if id:
+            news_source_object = News1(id,broadcaster)
+            newz_results.append(news_source_object)
+
     for news_item in newz_list:
-        id = news_item.get('source.id')
         title = news_item.get('title')
-        broadcaster = news_item.get('source.name')
         description = news_item.get('description')
         image = news_item.get('urlToImage')
         URLsource = news_item.get('url')
         date = news_item.get('publishedAt')
 
         if image:
-            news_object = News(id,title,broadcaster,description,image,URLsource,date)
+            news_object = NewsArticle2(title,description,image,URLsource,date)
             newz_results.append(news_object)
+
 
     return newz_results
