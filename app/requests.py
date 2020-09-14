@@ -34,10 +34,10 @@ def process_results(newz_list):
     Function  that processes the news result and transforms it to a list of Objects
 
     Args:
-        news_list: A list of dictionaries that contain movie details
+        news_list: A list of dictionaries that contain news details
 
     Returns :
-        newz_results: A list of movie objects
+        newz_results: A list of news objects
     '''
     newz_results = []
     for news_item in newz_list:

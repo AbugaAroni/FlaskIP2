@@ -19,6 +19,6 @@ def index():
 def news_source(news_id):
 
     '''
-    View movie page function that returns the movie details page and its data
+    View news page function that returns the news details page and its data
     '''
     return render_template('news_source.html',id = news_id)
