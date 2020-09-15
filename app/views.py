@@ -21,8 +21,7 @@ def news_source(news_id):
     '''
     View news page function that returns the news broadcasters page and its data
     '''
-    broadcaster_search="sources=bbc-news"
-    # + news_id
+    broadcaster_search="sources="+ news_id
     broadcasternews = get_broadcaster_news(broadcaster_search)
     print(broadcasternews)
     title = 'View stories from BBC'

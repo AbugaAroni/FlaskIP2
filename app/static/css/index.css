@@ -1,0 +1,21 @@
+p {
+   border: 2px solid #e9385a;
+   border-radius: 5px;
+}
+
+h3 {
+   border: 2px solid #e9385a;
+   border-radius: 5px;
+}
+
+.borders {
+   border: 2px solid #e9385a;
+   border-radius: 5px;
+}
+
+.dailydeals {
+ font-family: Georgia, "Times New Roman", Times, serif;
+ font-size: 23px;
+ font-weight: bold;
+ color: #336699;
+}

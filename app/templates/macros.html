@@ -1,15 +1,16 @@
 {% macro displayNews(headlines) %}
 
     {% for top_headlines in headlines %}
-    <div class="col-md-2 top_headlines-card">
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="border: 2px solid #e9385a;
+    border-radius: 5px; padding: 5px; float: left">
         <h3> Headline news from {{ top_headlines.broadcaster}} </h3>
         <img src="{{ top_headlines.image }}" alt="{{ top_headlines.broadcaster }} images" class="img-responsive">
         <ol>{{ top_headlines.title}}</ol>
-        <ol class="text-center">
+        <ol>Published on {{top_headlines.date}}</ol>
+        <ol class="text-center borders">
             <a add target="_blank" href="{{top_headlines.URLsource}}">
                 Read more</a>
         </ol>
-
         <ol> break! </ol>
         <ol class="text-center">
           More from  <a  href="/news_source/{{top_headlines.id}}">
@@ -24,19 +25,15 @@
 
     {% for top_headlines in broadcasternews %}
     <div class="col-md-2 top_headlines-card">
-        <h3> Headline news from {{ top_headlines.broadcaster}} </h3>
         <img src="{{ top_headlines.image }}" alt="{{ top_headlines.broadcaster }} images" class="img-responsive">
-        <ol>{{ top_headlines.title}}</ol>
+        <ol><h3>{{ top_headlines.title}}</h3></ol>
+        <ol>Published on {{top_headlines.date}}</ol>
         <ol class="text-center">
             <a add target="_blank" href="{{top_headlines.URLsource}}">
                 Read more</a>
         </ol>
 
         <ol> break! </ol>
-        <ol class="text-center">
-          More from  <a  href="/news_source/{{top_headlines.id}}">
-                {{ top_headlines.broadcaster }}</a>
-        </ol>
     </div>
     {% endfor %}
 
