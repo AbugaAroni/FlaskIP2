@@ -8,11 +8,11 @@
   <div class="row">
     <div class="col-md-12">
       {% if title %}
-        <h3> Lastest News from the {{title}}</h3>
+      <title> Lastest News from the {{title}}</title>
       {% else %}
-      <title> Lastest News from your selected Broadcaster</title>
+      <title> Lastest News from your selected broadcaster</title>
       {% endif %}
-    </div>  
+    </div>
   </div>
 
   <div class="row">
@@ -20,11 +20,10 @@
     </div>
 
     <div class="col-md-10">
-  <!-- News display section  -->
-
-        <ul>
-           {{ macro.displayBroadcasterNews(broadcasternews)}}
-        </ul>
+      <!-- News display section  -->
+      <ul>
+        {{ macro.displayBroadcasterNews(broadcasternews)}}
+      </ul>
     </div>
 
     <div class="col-md-1">
@@ -32,4 +31,4 @@
 
   </div>
 
-{% endblock%}
+  {% endblock%}

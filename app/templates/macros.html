@@ -4,26 +4,60 @@
             <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="border: 2px solid black;
             border-radius: 5px; padding: 5px; margin: 20px; height: 600px">
                 {% if top_headlines.broadcaster %}
-                    <h3> Headline news from {{ top_headlines.broadcaster}} </h3>
+
+                    <h2> Headline news from {{ top_headlines.broadcaster}} </h2>
+
                 {% else %}
+
                     <h3> Headline news from **Name unavailable</h3>
+
                 {% endif %}
 
                 {% if top_headlines.image %}
+
                     <img src="{{ top_headlines.image }}" alt="{{ top_headlines.broadcaster }} images" class="img-responsive">
+
                 {% else %}
-                    <img src="../static/unavailable-image.jpg" alt="{{ top_headlines.broadcaster }} images" class="img-responsive">
+
+                    <img src="../static/unavailable-image.jpg" alt="unavailable images" class="img-responsive" >
+
                 {% endif %}
-                <ol> <span> Story: </span> {{ top_headlines.title}}</ol>
-                <ol class="text-center">
-                    <a add target="_blank" href="{{top_headlines.URLsource}}">
-                        Read more</a>
-                </ol>
-                <ol> <span> Published on: </span> {{top_headlines.date}}</ol>
-                <ol class="text-center">
-                  More from  <a  href="/news_source/{{top_headlines.id}}">
-                        {{ top_headlines.broadcaster }}</a>
-                </ol>
+
+                {% if top_headlines.title %}
+
+                    <ol> <h3> {{ top_headlines.title}} </h3> <a add target="_blank" href="{{top_headlines.URLsource}}"> Read more</a> </ol>
+
+                {% else %}
+
+                    <ol> <span> Story: </span> UNAVAILABLE.</ol>
+
+                {% endif %}
+
+                  <br>
+
+                {% if top_headlines.date %}
+
+                      <ol> <span> Published date: </span> {{top_headlines.date}}</ol>
+
+                {% else %}
+
+                    <ol> <span> Published date: </span> UNAVAILABLE.</ol>
+
+                {% endif %}
+
+                  <br>
+
+                {% if top_headlines.broadcaster %}
+
+                  <ol class="text-center"> More strories from  <a  href="/news_source/{{top_headlines.id}}">  {{ top_headlines.broadcaster }}</a>  </ol>
+
+                {% else %}
+
+                    <ol> <span> More stories: </span> UNAVAILABLE.</ol>
+
+                {% endif %}
+
+
             </div>
 
     {% endfor %}
@@ -33,16 +67,11 @@
 {% macro displayBroadcasterNews(broadcasternews) %}
 
     {% for top_headlines in broadcasternews %}
-    <div class="col-md-2 top_headlines-card">
+    <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="border: 2px solid black;
+    border-radius: 5px; padding: 5px; margin: 20px; height: 400px">
         <img src="{{ top_headlines.image }}" alt="{{ top_headlines.broadcaster }} images" class="img-responsive">
-        <ol><h3>{{ top_headlines.title}}</h3></ol>
+        <ol><h3>{{ top_headlines.title}}</h3> <a add target="_blank" href="{{top_headlines.URLsource}}"> Read more</a> </ol>
         <ol>Published on {{top_headlines.date}}</ol>
-        <ol class="text-center">
-            <a add target="_blank" href="{{top_headlines.URLsource}}">
-                Read more</a>
-        </ol>
-
-        <ol> break! </ol>
     </div>
     {% endfor %}
 

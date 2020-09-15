@@ -6,6 +6,9 @@ p {
 h3 {
    text-align: center;
 }
+h1 {
+   text-align: center;
+}
 
 .borders {
    border: 2px solid #e9385a;
