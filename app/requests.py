@@ -55,11 +55,11 @@ def process_results(newz_list):
 
         if  id:
 
-                news_object = NewsArticle2(title,description,image,URLsource,date)
-                newz_results.append(news_object)
-                news_source_object = News1(id,broadcaster)
-                newz_results.append(news_source_object)
+            news_object = NewsArticle2(id,broadcaster,title,description,image,URLsource,date)
+#                news_source_object = News1(id,broadcaster)
 
+            newz_results.append(news_object)
+#                newz_results.append(news_object)
 
     return newz_results
 

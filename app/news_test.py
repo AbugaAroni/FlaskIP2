@@ -13,7 +13,7 @@ class NewsTest(unittest.TestCase):
         Set up method that will run before every Test
         '''
         self.new_News1 = News1(1234,'BBC')
-        self.new_News2 = News2('Title of the story','Brexit happened because zyz',"https://ichef.bbci.co.uk/images/ic/1024x576/p08rdfbt.jpg"
+        self.new_News2 = News2(1234,'BBC','Title of the story','Brexit happened because zyz',"https://ichef.bbci.co.uk/images/ic/1024x576/p08rdfbt.jpg"
             ,"https://www.cnn.com/2020/09/14/politics/election-2020-ballot-signature-mismatches/index.html"
             ,"2020-09-14T12:00:00Z"
             ,)

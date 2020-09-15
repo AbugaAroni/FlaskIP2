@@ -24,5 +24,5 @@ def news_source(news_id):
     broadcaster_search="sources="+ news_id
     broadcasternews = get_broadcaster_news(broadcaster_search)
     print(broadcasternews)
-    title = 'View stories from BBC'
+    title = "from your selected Broadcaster"
     return render_template('news_source.html',title=title,broadcasternews=broadcasternews)

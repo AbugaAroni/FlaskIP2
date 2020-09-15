@@ -6,13 +6,22 @@
 <div class="container">
 
   <div class="row">
+    <div class="col-md-12">
+      {% if title %}
+        <h3> Lastest News from the {{title}}</h3>
+      {% else %}
+      <title> Lastest News from your selected Broadcaster</title>
+      {% endif %}
+    </div>  
+  </div>
 
+  <div class="row">
     <div class="col-md-1">
     </div>
 
     <div class="col-md-10">
   <!-- News display section  -->
-      <h3> Lastest News from the BBC</h3>
+
         <ul>
            {{ macro.displayBroadcasterNews(broadcasternews)}}
         </ul>

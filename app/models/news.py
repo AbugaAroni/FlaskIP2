@@ -7,12 +7,13 @@ class News:
         self.id =id
         self.broadcaster = broadcaster
 
-class NewsArticle:
+class NewsArticle(News):
     '''
     News class to define News Objects
     '''
 
-    def __init__(self,title,description,image,URLsource,date):
+    def __init__(self,id,broadcaster,title,description,image,URLsource,date):
+        super().__init__( id, broadcaster)
         self.title = title
         self.description = description
         self.image = image
