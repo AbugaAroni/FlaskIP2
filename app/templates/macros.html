@@ -67,9 +67,18 @@
 {% macro displayBroadcasterNews(broadcasternews) %}
 
     {% for top_headlines in broadcasternews %}
-    <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="border: 2px solid black;
+      <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" style="border: 2px solid black;
     border-radius: 5px; padding: 5px; margin: 20px; height: 400px">
+    {% if top_headlines.image %}
+
         <img src="{{ top_headlines.image }}" alt="{{ top_headlines.broadcaster }} images" class="img-responsive">
+
+    {% else %}
+
+        <img src="../static/unavailable-image.jpg" alt="unavailable images" class="img-responsive" >
+
+    {% endif %}
+
         <ol><h3>{{ top_headlines.title}}</h3> <a add target="_blank" href="{{top_headlines.URLsource}}"> Read more</a> </ol>
         <ol>Published on {{top_headlines.date}}</ol>
     </div>

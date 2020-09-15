@@ -1,15 +1,16 @@
-from app import app
 import urllib.request,json
-from .models import news
-
-News1 = news.News
-NewsArticle2 = news.NewsArticle
+from .models import NewsArticle
 
 # Getting api key
-apikey = app.config['NEWS_API_KEY']
+apikey = None
+# Getting the NEWS base url
+base_url = None
 
-# Getting the news base url
-base_url = app.config["NEWS_API_BASE_URL"]
+def configure_request(app):
+    global apikey,base_url
+    base_url = app.config['NEWS_API_BASE_URL']
+    apikey = app.config['NEWS_API_KEY']
+
 
 def get_news(categories):
     '''
@@ -55,7 +56,7 @@ def process_results(newz_list):
 
         if  id:
 
-            news_object = NewsArticle2(id,broadcaster,title,description,image,URLsource,date)
+            news_object = NewsArticle(id,broadcaster,title,description,image,URLsource,date)
 #                news_source_object = News1(id,broadcaster)
 
             newz_results.append(news_object)

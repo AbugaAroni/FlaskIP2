@@ -1,9 +1,9 @@
-from flask import render_template
-from app import app
-from .requests import get_news, get_broadcaster_news
+from flask import render_template,request,redirect,url_for
+from . import main
+from ..requests import get_news, get_broadcaster_news
 
-# views
-@app.route('/')
+# Views
+@main.route('/')
 def index():
 
     '''
@@ -15,7 +15,7 @@ def index():
     title = 'View the Top News Stories'
     return render_template('index.html', title = title,headlines = top_headlines)
 
-@app.route('/news_source/<string:news_id>')
+@main.route('/news_source/<string:news_id>')
 def news_source(news_id):
 
     '''
@@ -24,5 +24,5 @@ def news_source(news_id):
     broadcaster_search="sources="+ news_id
     broadcasternews = get_broadcaster_news(broadcaster_search)
     print(broadcasternews)
-    title = "from your selected Broadcaster"
+    title = "News from your selected Broadcaster"
     return render_template('news_source.html',title=title,broadcasternews=broadcasternews)

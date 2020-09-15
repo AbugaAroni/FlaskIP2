@@ -1,5 +1,5 @@
 import unittest
-from models import news
+from app.models import News,NewsArticle
 News1 = news.News
 News2 = news.NewsArticle
 
@@ -39,7 +39,3 @@ class NewsTest(unittest.TestCase):
         self.assertEqual(self.new_News2.image,"https://ichef.bbci.co.uk/images/ic/1024x576/p08rdfbt.jpg")
         self.assertEqual(self.new_News2.URLsource,"https://www.cnn.com/2020/09/14/politics/election-2020-ballot-signature-mismatches/index.html")
         self.assertEqual(self.new_News2.date,"2020-09-14T12:00:00Z")
-
-
-if __name__ == '__main__':
-    unittest.main()
